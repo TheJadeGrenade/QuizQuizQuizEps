@@ -1,0 +1,269 @@
+from gpiozero import JamHat
+from time import sleep
+
+jamhat = JamHat()
+
+points = 0
+
+
+name = input("What is your name? ")
+if name == "skippyname":
+    print("Intro skipped.")
+else:
+    print("Welcome to the Quiz Quiz Quiz!: An Immersive JamHat Quiz Game! Today you, " +name+ ", will be playing it!")
+    sleep(1)
+    print("This game was made by TheJadeGrenade, who is also me, your host today! This is episode zero, the pilot. Okay... It's time to play...")
+    sleep(1)
+    print("QUIZ!")
+    jamhat.buzzer.play(220)
+    sleep(1)
+    jamhat.off()
+    sleep(1)
+    print("QUIZ!")
+    jamhat.buzzer.play(220)
+    sleep(1)
+    jamhat.off()
+    sleep(1)
+    print("QUIIIIIZ!")
+    jamhat.buzzer.play(500)
+    sleep(2)
+    jamhat.off()
+    print("To explain the 'immersive' part, this utilizes the JamHat to make noises, light up, and for the lightning round of true and false!")
+    sleep(3)
+    print("Alright, are you ready?")
+    print(3)
+    jamhat.lights_1.red.on()
+    jamhat.lights_2.red.on()
+    jamhat.buzzer.play(220)
+    sleep(1)
+    jamhat.off()
+    print(2)
+    jamhat.lights_1.yellow.on()
+    jamhat.lights_2.yellow.on()
+    jamhat.buzzer.play(300)
+    sleep(1)
+    jamhat.off()
+    print(1)
+    jamhat.lights_1.green.on()
+    jamhat.lights_2.green.on()
+    jamhat.buzzer.play(400)
+    sleep(1)
+    jamhat.off()
+    print("GO!!!")
+    jamhat.lights_1.on()
+    jamhat.lights_2.on()
+    jamhat.buzzer.play(600)
+    sleep(1.5)
+    jamhat.off()
+
+print("So this section will be multiple choice. Just write the capital letter of the right answer! I'd suggest turning on caps lock (right next to  the letter A on your keyboard).")
+sleep(3)
+ans = input("First is an easy one. What is 2+2? A.2, B.55, C. 22, D. 4 ")
+if ans == "D":
+    print("Good job! Add one point!")
+    points +=1
+    jamhat.lights_1.green.blink()
+    jamhat.lights_2.green.blink()
+    jamhat.buzzer.play(600)
+    sleep(1)
+    jamhat.off()
+else:
+    print("Sorry, wrong answer. Minus one point.")
+    points -=1
+    jamhat.lights_1.red.blink()
+    jamhat.lights_2.red.blink()
+    jamhat.buzzer.play(220)
+    sleep(1)
+    jamhat.off()
+    
+ans = input("Next question! What are the first seven digits of pi? A. R-A-S-P-B-E-R, B. 3.14159, C.3.148675, D.3.412278 ")
+if ans == "B":
+    print("Good job! Add one point!")
+    points +=1
+    jamhat.lights_1.green.blink()
+    jamhat.lights_2.green.blink()
+    jamhat.buzzer.play(600)
+    sleep(1)
+    jamhat.off()
+else:
+    print("Sorry, wrong answer. Minus one point.")
+    points -=1
+    jamhat.lights_1.red.blink()
+    jamhat.lights_2.red.blink()
+    jamhat.buzzer.play(220)
+    sleep(1)
+    jamhat.off() 
+
+ans = input("In the ancient Greek city of Athens, what tree was so sacred, you could get the death penalty for killing it? A. Olive tree, B. Oak tree, C. Willow tree, D. Sycamore tree ")
+if ans == "A":
+    print("Good job! Add one point!")
+    points +=1
+    jamhat.lights_1.green.blink()
+    jamhat.lights_2.green.blink()
+    jamhat.buzzer.play(600)
+    sleep(1)
+    jamhat.off()
+else:
+    print("Sorry, wrong answer. Minus one point.")
+    points -=1
+    jamhat.lights_1.red.blink()
+    jamhat.lights_2.red.blink()
+    jamhat.buzzer.play(220)
+    sleep(1)
+    jamhat.off()
+print("Alright, next portion! This is the lightning round: Click blue for true and red for false!")
+print("Are you ready for the...")
+jamhat.lights_1.blink()
+sleep(1)
+jamhat.lights_2.blink()
+print("LIGHTNING ROUND!!!")
+jamhat.off()
+print("True or false: E.T.: The Extra-Terrestrial, known for being one of the worst, if not the worst game in gaming history, was a top-down adventure game.")
+i = 0
+while i == 0:
+    if jamhat.button_1.is_pressed or jamhat.button_2.is_pressed:
+        if jamhat.button_1.is_pressed:
+            print("Good job! Add one point!")
+            points +=1
+            i +=1
+            jamhat.lights_1.green.blink()
+            jamhat.lights_2.green.blink()
+            jamhat.buzzer.play(600)
+            sleep(1)
+            jamhat.off()
+            jamhat.button_1.wait_for_release()
+            
+    if jamhat.button_2.is_pressed:
+        print("Sorry, wrong answer. Minus one point.")
+        points -=1
+        i +=1
+        jamhat.lights_1.red.blink()
+        jamhat.lights_2.red.blink()
+        jamhat.buzzer.play(220)
+        sleep(1)
+        jamhat.off()
+        jamhat.button_2.wait_for_release()
+            
+    sleep(0.1)
+print("True or false: NASCAR traces its origins to bootleggers outrunning the police during Prohibition.")
+while i == 1:
+    if jamhat.button_1.is_pressed or jamhat.button_2.is_pressed:
+        if jamhat.button_1.is_pressed:
+            print("Good job! Add one point!")
+            points +=1
+            i +=1
+            jamhat.lights_1.green.blink()
+            jamhat.lights_2.green.blink()
+            jamhat.buzzer.play(600)
+            sleep(1)
+            jamhat.off()
+            jamhat.button_1.wait_for_release()
+            
+    if jamhat.button_2.is_pressed:
+            print("Sorry, wrong answer. Minus one point.")
+            points -=1
+            i +=1
+            jamhat.lights_1.red.blink()
+            jamhat.lights_2.red.blink()
+            jamhat.buzzer.play(220)
+            sleep(1)
+            jamhat.off()
+            jamhat.button_2.wait_for_release()
+            
+    sleep(0.1)
+print("True or false: The bear has caused more human deaths than any other mammal in history.")
+while i == 2:
+    if jamhat.button_1.is_pressed or jamhat.button_2.is_pressed:
+        if jamhat.button_1.is_pressed:
+            print("Sorry, wrong answer. Minus one point. (The rat has caused more by carrying disease.)")
+            points -=1
+            i +=1
+            jamhat.lights_1.red.blink()
+            jamhat.lights_2.red.blink()
+            jamhat.buzzer.play(220)
+            sleep(1)
+            jamhat.off()
+            jamhat.button_2.wait_for_release()
+            
+    if jamhat.button_2.is_pressed:
+            print("Good job! Add one point! (The rat has caused more by carrying disease.)")
+            points +=1
+            i +=1
+            jamhat.lights_1.green.blink()
+            jamhat.lights_2.green.blink()
+            jamhat.buzzer.play(600)
+            sleep(1)
+            jamhat.off()
+            jamhat.button_1.wait_for_release()
+            sleep(0.1)
+print("True or false: Lightning never strikes the same place twice.")
+while i == 3:
+    if jamhat.button_1.is_pressed or jamhat.button_2.is_pressed:
+        if jamhat.button_1.is_pressed:
+            print("Sorry, wrong answer. Minus one point. ")
+            points -=1
+            i +=1
+            jamhat.lights_1.red.blink()
+            jamhat.lights_2.red.blink()
+            jamhat.buzzer.play(220)
+            sleep(1)
+            jamhat.off()
+            jamhat.button_2.wait_for_release()
+            
+    if jamhat.button_2.is_pressed:
+            print("Good job! Add one point! ")
+            points +=1
+            i +=1
+            jamhat.lights_1.green.blink()
+            jamhat.lights_2.green.blink()
+            jamhat.buzzer.play(600)
+            sleep(1)
+            jamhat.off()
+            jamhat.button_1.wait_for_release()
+print("True or false: Labrador retrievers were originally bred to retrieve fishing nets.")
+while i == 4:
+    if jamhat.button_1.is_pressed or jamhat.button_2.is_pressed:
+        if jamhat.button_1.is_pressed:
+            print("Good job! Add one point!")
+            points +=1
+            i +=1
+            jamhat.lights_1.green.blink()
+            jamhat.lights_2.green.blink()
+            jamhat.buzzer.play(600)
+            sleep(1)
+            jamhat.off()
+            jamhat.button_1.wait_for_release()
+        sleep(0.1)
+            
+    if jamhat.button_2.is_pressed:
+            print("Sorry, wrong answer. Minus one point.")
+            points -=1
+            i +=1
+            jamhat.lights_1.red.blink()
+            jamhat.lights_2.red.blink()
+            jamhat.buzzer.play(220)
+            sleep(1)
+            jamhat.off()
+            jamhat.button_2.wait_for_release()
+            
+    sleep(0.1)
+print("That's all for this edition of the Quiz Quiz Quiz by TheJadeGrenade. you got " + str(points) + " point(s). I very much hope you enjoyed this edition of...")
+print("QUIZ!")
+jamhat.buzzer.play(220)
+sleep(1)
+jamhat.off()
+sleep(1)
+print("QUIZ!")
+jamhat.buzzer.play(220)
+sleep(1)
+jamhat.off()
+sleep(1)
+print("QUIIIIIZ!")
+jamhat.buzzer.play(500)
+sleep(2)
+jamhat.off()
+while True:
+    jamhat.lights_1.blink()
+    sleep(1)
+    jamhat.lights_2.blink()
+    sleep(1)
