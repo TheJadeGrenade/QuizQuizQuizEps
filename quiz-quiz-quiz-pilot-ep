@@ -1,3 +1,5 @@
+# Please refrain from looking at answers if you're playing for the first time! All instructions are played in the game's text.
+
 from gpiozero import JamHat
 from time import sleep
 
