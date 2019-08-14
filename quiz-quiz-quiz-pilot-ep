@@ -1,4 +1,5 @@
 # Please refrain from looking at answers if you're playing for the first time! All instructions are played in the game's text.
+# I suggest you use Thonny Python for this.
 
 from gpiozero import JamHat
 from time import sleep
@@ -9,6 +10,7 @@ points = 0
 
 
 name = input("What is your name? ")
+# Skippyname made for testing purposes.
 if name == "skippyname":
     print("Intro skipped.")
 else:
